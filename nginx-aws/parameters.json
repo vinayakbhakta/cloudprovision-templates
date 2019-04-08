@@ -1,0 +1,95 @@
+{
+  "customTypes": {
+    "instanceType": {
+      "parameters": [
+        {
+          "label": "Node Type",
+          "fieldName": "node_type",
+          "dataType": "list",
+          "defaultValue": "t2.medium",
+          "options": [
+            {
+              "label": "Medium",
+              "value": "t2.medium"
+            },
+            {
+              "label": "Large",
+              "value": "t2.large"
+            },
+            {
+              "label": "Custom",
+              "value": "custom"
+            }
+          ]
+        },
+        {
+          "label": "Number of vCPU",
+          "tooltip": "number of vcpu's",
+          "placeholder": "number of vcpu's",
+          "dataType": "integer",
+          "fieldName": "vcpus",
+          "defaultValue": 2,
+          "min": 1,
+          "max": 8
+        },
+        {
+          "label": "RAM(GB)",
+          "tooltip": "Memory size in GB",
+          "placeholder": "Memory size in GB",
+          "dataType": "integer",
+          "fieldName": "ram",
+          "defaultValue": 8,
+          "min": 4,
+          "max": 16
+        }
+      ],
+      "action": {
+        "label": "Discover",
+        "url": "https://www.snappyflow.io/snappyflow/snappyflowapp/sizing"
+      }
+    }
+  },
+  "parameters": [
+    {
+      "label": "Nginx node details",
+      "description": "",
+      "dataType": "group",
+      "parameters": [
+        {
+          "label": "Instance Type",
+          "tooltip": "aws instance type for all nodes",
+          "dataType": "instanceType",
+          "fieldName": "node_instance_type"
+        },
+        {
+          "label": "Disk Size(GB)",
+          "tooltip": "Disk size in GB",
+          "placeholder": "Disk size in GB",
+          "dataType": "integer",
+          "fieldName": "node_disk_size",
+          "defaultValue": 10,
+          "min": 10,
+          "max": 200
+        },
+        {
+          "label": "Disk Type",
+          "tooltip": "Node Disk Type",
+          "placeholder": "Node Disk Type",
+          "dataType": "list",
+          "fieldName": "node_disk_type",
+          "defaultValue": "standard",
+          "options": [
+            {
+              "label": "EBS Magnetic",
+              "value": "standard"
+            },
+            {
+              "label": "General Purpose SSD",
+              "value": "gp2"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

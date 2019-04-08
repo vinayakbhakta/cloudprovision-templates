@@ -1,0 +1,1 @@
+${name} ansible_host=${public} ip=${private}

@@ -1,0 +1,9 @@
+[
+{% for host in groups['all'] %}
+  {
+  "name": "{{ hostvars[host].inventory_hostname }}",
+  "url": "http://{{ hostvars[host].ansible_host }}"
+  }{% if not loop.last %},\n{% endif %}
+{% endfor %}
+
+]

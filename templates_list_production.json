@@ -1,0 +1,11 @@
+{
+  "aws": [
+    "Sample Application"
+  ],
+  "gcp": [
+  ],
+  "openstack": [
+  ],
+  "vcenter": [
+  ]
+}

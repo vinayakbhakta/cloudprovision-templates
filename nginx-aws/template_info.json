@@ -1,0 +1,11 @@
+{
+  "name": "Nginx Server",
+  "type": "terraform",
+  "app": "nginx",
+  "target_cloud": "aws",
+  "description": "Single node Nginx server installed on CentOS 7. This template is for demo. Nginx should always be installed with application server template and configured with app serve endpoints",
+  "prerequisites": "",
+  "limitations": "",
+  "logo": null,
+  "dashboard_template": "nginx"
+}

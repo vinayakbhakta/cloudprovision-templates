@@ -1,0 +1,36 @@
+- hosts: all
+  become: yes
+  gather_facts: False
+  tasks:
+    - include: bootstrap.yml
+
+- hosts: nginx
+  become: true
+  roles:
+    - ansible-role-nginx
+  vars:
+    nginx_type: opensource
+    nginx_status_enable: true
+    nginx_status_port: 8080
+    nginx_http_template_enable: true
+    nginx_http_template:
+      default:
+        template_file: http/default.conf.j2
+        conf_file_name: default.conf
+        conf_file_location: /etc/nginx/conf.d/
+        port: 80
+        server_name: localhost
+        error_page: /usr/share/nginx/html
+        web_server:
+          http_demo_conf: true
+          locations:
+            default:
+              location: /
+              html_file_location: /usr/share/nginx/html
+              html_file_name: index.html
+
+- hosts: localhost
+  gather_facts: false
+  become: no
+  roles:
+    - configlocal
